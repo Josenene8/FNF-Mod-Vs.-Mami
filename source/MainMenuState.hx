@@ -14,7 +14,7 @@ import flixel.tweens.FlxEase;
 import flixel.util.FlxColor;
 import flixel.math.FlxMath;
 import flixel.util.FlxTimer;
-import io.newgrounds.NG;
+//import io.newgrounds.NG;
 import lime.app.Application;
 
 #if windows
@@ -243,7 +243,10 @@ class MainMenuState extends MusicBeatState
 			controls.setKeyboardScheme(KeyboardScheme.Duo(true), true);
 
 		changeItem();
-
+				
+                #if mobileC
+		addVirtualPad(UP_DOWN, A_B);
+		#end
 
 		ticketsCount = new FlxText(FlxG.width * 0.9, 35, 0, "", 32);
 		ticketsCount.setFormat("VCR OSD Mono", 64, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
