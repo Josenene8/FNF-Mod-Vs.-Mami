@@ -282,9 +282,21 @@ class DialogueBox extends FlxSpriteGroup
 		}
 
 		dialogueOpened = true;
+		#if mobile
+		var justTouched:Bool = false;
 
-		if (FlxG.keys.justPressed.ESCAPE && dialogueStarted == true && dialogueSkipped == false)
-			{
+		for (touch in FlxG.touches.list)
+		{
+			justTouched = false;
+			
+			if (touch.justReleased){
+				justTouched = true;
+			}
+		}
+		#end
+
+		if (FlxG.keys.justPressed.ANY #if mobile || justTouched #end && dialogueStarted == true)
+		{
 				isEnding = true;
 				dialogueSkipped = true;
 
