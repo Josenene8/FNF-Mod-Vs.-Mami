@@ -491,7 +491,7 @@ class PlayState extends MusicBeatState
 		isDisco = false;
 		thisBitchSnapped = false;
 		cameraZoomrate = 4;
-		setChrome(0.0);
+	//	setChrome(0.0);
 		deathCause = '';
 
 		songCleared = false;
@@ -2673,10 +2673,10 @@ class PlayState extends MusicBeatState
 				var chromeOffset:Float = ((2 - ((health / 0.5))));
 				chromeOffset /= 350;
 				if (chromeOffset <= 0)
-					setChrome(0.0);
+				//	setChrome(0.0);
 				else
 					{
-					setChrome(chromeOffset);
+				//	setChrome(chromeOffset);
 					}	
 			}
 
@@ -2685,10 +2685,10 @@ class PlayState extends MusicBeatState
 				var chromeOffset:Float = ((2 - ((health / 0.5))));
 				chromeOffset /= 600;
 				if (chromeOffset <= 0)
-					setChrome(0.0);
+				//	setChrome(0.0);
 				else
 					{
-					setChrome(chromeOffset);
+				//	setChrome(chromeOffset);
 					}	
 			}	
 
@@ -3043,7 +3043,7 @@ class PlayState extends MusicBeatState
 
 		if (health <= 0 && godmodecheat == false && !songCleared)
 		{
-			setChrome(0.0);
+		//	setChrome(0.0);
 			if (deathByHolyNote && FlxG.save.data.flashingLights)
 				{
 					deathCause = 'holynote';
@@ -3463,7 +3463,7 @@ class PlayState extends MusicBeatState
 
 					if (SONG.validScore)
 					{
-						NGio.unlockMedal(60961);
+				//		NGio.unlockMedal(60961);
 						Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 					}
 
