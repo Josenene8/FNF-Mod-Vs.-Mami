@@ -2686,11 +2686,11 @@ class PlayState extends MusicBeatState
 				chromeOffset /= 600;
 				if (chromeOffset <= 0)
 				//	setChrome(0.0);
-				else
-					{
+			//	else
+			//		{
 				//	setChrome(chromeOffset);
-					}	
-			}	
+			//		}	
+		//	}	
 
 		if (FlxG.keys.pressed.R)
 			if (FlxG.save.data.resetButton)
