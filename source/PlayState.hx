@@ -2674,11 +2674,11 @@ class PlayState extends MusicBeatState
 				chromeOffset /= 350;
 				if (chromeOffset <= 0)
 				//	setChrome(0.0);
-				else
-					{
+			//	else
+				//	{
 				//	setChrome(chromeOffset);
-					}	
-			}
+			//		}	
+			//}
 
 		if (curSong == 'Mamigation')
 			{
