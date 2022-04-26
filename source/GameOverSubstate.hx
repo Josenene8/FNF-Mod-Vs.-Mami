@@ -115,6 +115,11 @@ class GameOverSubstate extends MusicBeatSubstate
 				bf.playAnim('shot');
 			default:
 				bf.playAnim('firstDeath');
+				
+				#if mobileC
+		addVirtualPad(NONE, A_B);
+		#end
+			
 		}
 	}
 
