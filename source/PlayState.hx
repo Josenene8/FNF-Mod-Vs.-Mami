@@ -57,7 +57,6 @@ import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.ShaderFilter;
 import openfl.filters.ColorMatrixFilter;
-import ui.Mobilecontrols;
 
 #if windows
 import Discord.DiscordClient;
@@ -268,11 +267,7 @@ class PlayState extends MusicBeatState
 	public static var songOffset:Float = 0;
 
 	private var executeModchart = false;
-	
-        #if mobileC
-	var mcontrols:Mobilecontrols; 
-	#end
-		
+
 	// LUA SHIT
 		
 	public static var lua:State = null;
@@ -491,7 +486,7 @@ class PlayState extends MusicBeatState
 		isDisco = false;
 		thisBitchSnapped = false;
 		cameraZoomrate = 4;
-	//	setChrome(0.0);
+		setChrome(0.0);
 		deathCause = '';
 
 		songCleared = false;
@@ -1258,31 +1253,7 @@ class PlayState extends MusicBeatState
 		kadeEngineWatermark.cameras = [camHUD];
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
-				
-                #if mobileC
-			mcontrols = new Mobilecontrols();
-			switch (mcontrols.mode)
-			{
-				case VIRTUALPAD_RIGHT | VIRTUALPAD_LEFT | VIRTUALPAD_CUSTOM:
-					controls.setVirtualPad(mcontrols._virtualPad, FULL, NONE);
-				case HITBOX:
-					controls.setHitBox(mcontrols._hitbox);
-				default:
-			}
-			trackedinputs = controls.trackedinputs;
-			controls.trackedinputs = [];
 
-			var camcontrol = new FlxCamera();
-			FlxG.cameras.add(camcontrol);
-			camcontrol.bgColor.alpha = 0;
-			mcontrols.cameras = [camcontrol];
-
-			mcontrols.visible = false;
-
-			add(mcontrols);
-		#end
-			
-			
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -1541,12 +1512,7 @@ class PlayState extends MusicBeatState
 	var perfectMode:Bool = false;
 
 	function startCountdown():Void
-	{  
-		#if mobileC
-		mcontrols.visible = true;
-		#end
-			
-			
+	{
 		inCutscene = false;
 
 		generateStaticArrows(0);
@@ -2673,24 +2639,24 @@ class PlayState extends MusicBeatState
 				var chromeOffset:Float = ((2 - ((health / 0.5))));
 				chromeOffset /= 350;
 				if (chromeOffset <= 0)
-				//	setChrome(0.0);
-			//	else
-				//	{
-				//	setChrome(chromeOffset);
-			//		}	
-			//}
+					setChrome(0.0);
+				else
+					{
+					setChrome(chromeOffset);
+					}	
+			}
 
 		if (curSong == 'Mamigation')
 			{
 				var chromeOffset:Float = ((2 - ((health / 0.5))));
 				chromeOffset /= 600;
 				if (chromeOffset <= 0)
-				//	setChrome(0.0);
-			//	else
-			//		{
-				//	setChrome(chromeOffset);
-			//		}	
-		//	}	
+					setChrome(0.0);
+				else
+					{
+					setChrome(chromeOffset);
+					}	
+			}	
 
 		if (FlxG.keys.pressed.R)
 			if (FlxG.save.data.resetButton)
@@ -3043,7 +3009,7 @@ class PlayState extends MusicBeatState
 
 		if (health <= 0 && godmodecheat == false && !songCleared)
 		{
-		//	setChrome(0.0);
+			setChrome(0.0);
 			if (deathByHolyNote && FlxG.save.data.flashingLights)
 				{
 					deathCause = 'holynote';
@@ -3463,7 +3429,7 @@ class PlayState extends MusicBeatState
 
 					if (SONG.validScore)
 					{
-				//		NGio.unlockMedal(60961);
+						NGio.unlockMedal(60961);
 						Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 					}
 
